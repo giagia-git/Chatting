@@ -1,0 +1,207 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.App__User {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.App__User__markerting {
+    width: 25%;
+    height: 100%;
+    display: block;
+    float: left;
+}
+
+.App__User__markerting__custom {
+    width: 25%;
+    height: 100%;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    overflow: hidden;
+}
+
+.App__User__markerting__custom__clock {
+    position: absolute;
+    left: 34%;
+    top: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+}
+
+.App__User__Connecting {
+    width: 25%;
+    height: 100%;
+    display: block;
+    float: left;
+}
+
+.App__User__Connecting__humans {
+    width: 100%;
+    height: 90%;
+    display: block;
+    overflow-y: scroll;
+    background-color: 	#FFFFFF;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+.App__User__Connecting__search {
+    width: 100%;
+    height: 10%;
+    background-color: #EEEEEE;
+    display: block;
+}
+
+.App__User__Container {
+    width: 50%;
+    height: 100%;
+    display: block;
+    float: left;
+    border: 1px solid grey;
+    background-color:#EEEEEE ;
+}
+
+.App__User__Chat {
+    width: 100%;
+    height: 90%;
+    display: block;
+    background-color: #EEEEEE;
+    overflow-y: scroll;
+    
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+.App__User__Table {
+    width: 100%;
+    height: 10%;
+    display: block;
+}
+
+.App__User__Message {
+    width: 80%;
+    height: 50%;
+    margin-left: 5%;
+    margin-top: 1%;
+    border-radius: 5px;
+    border: 2px solid grey;
+    color: #63717f;
+    outline: none;
+    font-size: 15px;
+}
+
+.App__User__Send {
+    width: 10%;
+    height: 60%;
+    margin-left: 10px;
+    background-color: green;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.App__User__Chat__List {
+    list-style-type: none;
+    padding-left: 3%;
+    padding-top: 3%;
+    margin-bottom: 3%;
+}
+
+.App__User__Chat__List__user {
+    width: 95%;
+    height: 100%;
+}       
+
+.App__User__Chat__List__user__username__Block {
+    width: 20%;
+    height: 100%;
+    float: left;
+    display: inline-block;
+    margin: 2% 0;
+}
+
+.App__User__Chat__List__user__username {
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    padding: 2px;
+    font-weight: bolder;
+}
+
+.App__User__Chat__List__user__value__Block {
+    width: 78%;
+    height: 100%;
+    float :left;
+    display: inline-block;
+    word-wrap: break-word;
+    background-color: rgb(185, 184, 184);
+    padding: 1%;
+    border: none;
+    margin: 1% 0;
+}
+
+.App__User__Chat__List__user__value {
+    width: auto;
+    height: auto;
+    padding: 10px; 
+    word-wrap: break-word;
+    font-size: 18px;
+    padding: 15px;
+}
+
+.App__User__Connecting__search {
+    padding: 10px;
+}
+
+.App__User__Connecting__search__user {
+    width: 80%;
+    height: 100%;
+
+}
+
+.App__User__Connecting__search__find {
+    width: 30%;
+    height: 30%;
+}
+
+.App__User__Connecting__humans__all {
+    padding: 5px;
+}
+
+.App__User__Connecting__humans__all__list {
+    list-style-type: none;
+    width: 100%;
+    height: 20%;
+    background-color: #996699;
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.App__User__markerting__custom__clients {
+    width: 100%;
+    height: 10%;
+    position: relative;
+}
+
+.App__User__markerting__custom__clients__content {
+    width: auto;
+    height: 30%;
+    background-color: #996699;
+    border: none;
+    position: absolute;
+    padding: 3%;
+    left: 25%;
+    top: 90%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+}

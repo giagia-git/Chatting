@@ -1,0 +1,74 @@
+
+const express = require("express");
+const app = express();
+const http = require("http").createServer(app);
+const io = require("socket.io")(http, {
+    CORS: {
+        origin: '*',
+    }
+});
+const bodyParser = require("body-parser");
+const mongoose = require("./connectdb/connectdb");
+const AccountModel = require("./model/Account");
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+const router = require("./router/router");
+
+const PORT = process.env.PORT || 5000;
+
+var checkName = [];
+var clients = 0;
+var doc;
+
+
+
+io.on("connection", (socket) => {
+    clients++;
+                
+    socket.emit("alluserconnection",{clientsConnection: clients});
+
+    socket.on("saveDatabase", (data) => {
+        if(checkName.indexOf(data.username) <= -1) {
+            checkName.push(data.username);
+            const AccountUser = new AccountModel({ username: data.username });
+            AccountUser.save(function(err) {
+                if(err) {
+                    throw new Error(err);
+                }else{
+                    console.log("Save to Database success!");
+                }
+            })
+        }
+    })
+
+    run();
+    async function run() {
+        doc = await AccountModel.find();
+        socket.emit("setallUserconnect", { arrayUser: doc });
+    }
+
+
+    socket.on("setUser", (data) => {;
+        socket.emit("finallysetUser",data);
+    })
+            
+    socket.on("usermessage",(data) => {
+        io.sockets.emit("newusermessage", data);
+    })
+            
+
+    socket.on("disconnect", (data) => {
+        clients--;
+        socket.emit("alluserconnection",{clientsConnection: clients});
+    });
+})
+
+app.use(router);
+
+http.listen(5000, () => {
+    console.log(`Listening PORT ${PORT}`);
+})
+
+
