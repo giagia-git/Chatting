@@ -14,7 +14,7 @@
     "socket.io-client": "^4.2.0"
   },
   "scripts": {
-    "start": "npm start index.js",
+    "start": "node src/index.js",
   },
   "eslintConfig": {
     "extends": [
