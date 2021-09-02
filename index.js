@@ -67,7 +67,7 @@ io.on("connection", (socket) => {
 
 app.use(router);
 
-http.listen(5000, () => {
+http.listen(PORT, () => {
     console.log(`Listening PORT ${PORT}`);
 })
 
