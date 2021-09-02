@@ -65,7 +65,10 @@ io.on("connection", (socket) => {
     });
 })
 
-app.use(router);
+app.use(express.static("client/public"));
+app.get("*", (req, res) => {
+    res.sendFile("index.html"); 
+})
 
 http.listen(PORT, () => {
     console.log(`Listening PORT ${PORT}`);
