@@ -2,17 +2,22 @@
 const express = require("express");
 const app = express();
 const http = require("http").createServer(app);
+const mongoose = require("mongoose")
 const io = require("socket.io")(http, {
     CORS: {
         origin: '*',
     }
 });
 const bodyParser = require("body-parser");
-const mongoose = require("./connectdb/connectdb");
 const AccountModel = require("./model/Account");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
+mongoose.connect("mongodb+srv://giap92446:123456@cluster0.3cwko.mongodb.net/Database?retryWrites=true&w=majority",function() {
+    console.log("Connect database success!");
+}); 
 
 const router = require("./router/router");
 
