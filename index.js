@@ -21,14 +21,7 @@ var checkName = [];
 var clients = 0;
 var doc;
 
-   
-
-
-
-io.on("connection", (socket) => {
-    clients++;
-       
-    
+    run();
     async function run() {
         await mongoose.connect("mongodb+srv://giap92446:123456@cluster0.3cwko.mongodb.net/Database?retryWrites=true&w=majority",function() {
             console.log("Connect database success!");
@@ -37,13 +30,17 @@ io.on("connection", (socket) => {
         
         await doc = AccountModel.find();
         await socket.emit("setallUserconnect", { arrayUser: doc });
-    }
+    }   
+
+
+
+io.on("connection", (socket) => {
+    clients++;
     
     
     socket.emit("alluserconnection",{clientsConnection: clients});
 
     socket.on("saveDatabase", (data) => {
-        run();
         if(checkName.indexOf(data.username) <= -1) {
             checkName.push(data.username);
             const AccountUser = new AccountModel({ username: data.username });
