@@ -21,7 +21,7 @@ var checkName = [];
 var clients = 0;
 var doc;
 
-    /*run();
+    run();
     async function run() {
         await mongoose.connect("mongodb+srv://giap92446:123456@cluster0.3cwko.mongodb.net/Database?retryWrites=true&w=majority",function() {
             console.log("Connect database success!");
@@ -30,7 +30,7 @@ var doc;
         
         doc = await AccountModel.find();
         socket.emit("setallUserconnect", { arrayUser: doc });
-    }*/
+    }
 
 
 
