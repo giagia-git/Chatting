@@ -19,8 +19,6 @@ mongoose.connect("mongodb+srv://giap92446:123456@cluster0.3cwko.mongodb.net/Data
     console.log("Connect database success!");
 }); 
 
-const router = require("./router/router");
-
 const PORT = process.env.PORT || 5000;
 
 var checkName = [];
