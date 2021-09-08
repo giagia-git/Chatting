@@ -28,22 +28,22 @@ var doc;
 io.on("connection", (socket) => {
     clients++;
        
-    run();
     
     async function run() {
-        mongoose.connect("mongodb+srv://giap92446:123456@cluster0.3cwko.mongodb.net/Database?retryWrites=true&w=majority",function() {
+        await mongoose.connect("mongodb+srv://giap92446:123456@cluster0.3cwko.mongodb.net/Database?retryWrites=true&w=majority",function() {
             console.log("Connect database success!");
         });
         
         
-        doc = AccountModel.find();
-        socket.emit("setallUserconnect", { arrayUser: doc });
+        await doc = AccountModel.find();
+        await socket.emit("setallUserconnect", { arrayUser: doc });
     }
     
     
     socket.emit("alluserconnection",{clientsConnection: clients});
 
     socket.on("saveDatabase", (data) => {
+        run();
         if(checkName.indexOf(data.username) <= -1) {
             checkName.push(data.username);
             const AccountUser = new AccountModel({ username: data.username });
