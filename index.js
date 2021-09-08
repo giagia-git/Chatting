@@ -9,7 +9,6 @@ const io = require("socket.io")(http, {
     }
 });
 const bodyParser = require("body-parser");
-//const AccountModel = require("./model/Account");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -20,28 +19,7 @@ const PORT = process.env.PORT || 5000;
 var checkName = [];
 var clients = 0;
 var doc;
-    
-/*
-    run();
-    async function run() {
-        await mongoose.connect("mongodb+srv://giap92446:123456@cluster0.3cwko.mongodb.net/Database?retryWrites=true&w=majority",function() {
-            console.log("Connect database success!");
-        });
-        
-              
 
-        const Schema = mongoose.Schema;
-
-        const schema = new Schema({
-            username: String
-        })
-        const AccountModel = mongoose.model("myUsers",schema);
-        const AccountUser = new AccountModel({ username: checkName[0] });
-        
-        await doc = AccountModel.find();
-        await socket.emit("setallUserconnect", { arrayUser: doc });
-
-    }   */
 
 
 
@@ -50,20 +28,6 @@ io.on("connection", (socket) => {
     
     
     socket.emit("alluserconnection",{clientsConnection: clients});
-
-    /*socket.on("saveDatabase", (data) => {
-        if(checkName.indexOf(data.username) <= -1) {
-            checkName.push(data.username);
-            const AccountUser = new AccountModel({ username: data.username });
-            AccountUser.save(function(err) {
-                if(err) {
-                    throw new Error(err);
-                }else{
-                    console.log("Save to Database success!");
-                }
-            })
-        }
-    })*/
 
     socket.on("setUser", (data) => {;
         socket.emit("finallysetUser",data);
