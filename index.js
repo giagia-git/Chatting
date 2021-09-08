@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
 
-var checkName = [];
+//var checkName = [];
 var clients = 0;
 var doc;
 
