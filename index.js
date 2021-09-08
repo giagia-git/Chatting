@@ -53,14 +53,14 @@ io.on("connection", (socket) => {
     socket.on("saveDatabase", (data) => {
         if(checkName.indexOf(data.username) <= -1) {
             checkName.push(data.username);
-            const AccountUser = new AccountModel({ username: data.username });
+            /*const AccountUser = new AccountModel({ username: data.username });
             AccountUser.save(function(err) {
                 if(err) {
                     throw new Error(err);
                 }else{
                     console.log("Save to Database success!");
                 }
-            })
+            })*/
         }
     })
 
