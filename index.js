@@ -51,8 +51,8 @@ io.on("connection", (socket) => {
     
     socket.emit("alluserconnection",{clientsConnection: clients});
 
-    socket.on("saveDatabase", (data) => {
-        /*if(checkName.indexOf(data.username) <= -1) {
+    /*socket.on("saveDatabase", (data) => {
+        if(checkName.indexOf(data.username) <= -1) {
             checkName.push(data.username);
             const AccountUser = new AccountModel({ username: data.username });
             AccountUser.save(function(err) {
@@ -62,8 +62,8 @@ io.on("connection", (socket) => {
                     console.log("Save to Database success!");
                 }
             })
-        }*/
-    })
+        }
+    })*/
 
     socket.on("setUser", (data) => {;
         socket.emit("finallysetUser",data);
