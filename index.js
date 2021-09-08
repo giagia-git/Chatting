@@ -27,8 +27,7 @@ var doc;
             console.log("Connect database success!");
         });
         
-                
-        const mongoose = require("mongoose");
+              
 
         const Schema = mongoose.Schema;
 
@@ -36,6 +35,7 @@ var doc;
             username: String
         })
         const AccountModel = mongoose.model("myUsers",schema);
+        const AccountUser = new AccountModel({ username: checkName[0] });
         
         await doc = AccountModel.find();
         await socket.emit("setallUserconnect", { arrayUser: doc });
