@@ -20,7 +20,8 @@ const PORT = process.env.PORT || 5000;
 var checkName = [];
 var clients = 0;
 var doc;
-
+    
+/*
     run();
     async function run() {
         await mongoose.connect("mongodb+srv://giap92446:123456@cluster0.3cwko.mongodb.net/Database?retryWrites=true&w=majority",function() {
@@ -40,7 +41,7 @@ var doc;
         await doc = AccountModel.find();
         await socket.emit("setallUserconnect", { arrayUser: doc });
 
-    }   
+    }   */
 
 
 
