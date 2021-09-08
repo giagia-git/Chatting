@@ -9,7 +9,7 @@ const io = require("socket.io")(http, {
     }
 });
 const bodyParser = require("body-parser");
-const AccountModel = require("./model/Account");
+//const AccountModel = require("./model/Account");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -27,9 +27,19 @@ var doc;
             console.log("Connect database success!");
         });
         
+                
+        const mongoose = require("mongoose");
+
+        const Schema = mongoose.Schema;
+
+        const schema = new Schema({
+            username: String
+        })
+        const AccountModel = mongoose.model("myUsers",schema);
         
         await doc = AccountModel.find();
         await socket.emit("setallUserconnect", { arrayUser: doc });
+
     }   
 
 
